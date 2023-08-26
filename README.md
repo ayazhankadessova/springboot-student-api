@@ -37,3 +37,29 @@ public class DemoApplication {
 ```
 ["Hello","World"]
 ```
+
+3. Student class
+
+The constructor is created with the specified parameters. Type ctor , and then press TAB twice. For the full list of snippets (little bits of prefabricated code) press Ctrl + K and then Ctrl + X .
+
+- Right click -> Source Action
+
+- [x] Generate constructors
+- [x] Generate getters
+- [x] Generate setters
+- [x] Generate toString()
+
+- [x] Change DemoApplication.js
+
+```
+	@GetMapping
+	public List<Student> hello() {
+		Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
+				21);
+		return List.of(Mariyam);
+	}
+```
+
+```
+[{"id":1,"name":"Mariam","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":21}]
+```
