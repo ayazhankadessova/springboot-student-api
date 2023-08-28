@@ -166,3 +166,16 @@ The constructor is created with the specified parameters. Type ctor , and then p
    2. Download `Postgres.app`
 
    - Best for MacOS: https://postgresapp.com/downloads.html
+
+   3. Initialize & connect to database
+
+   ```
+   CREATE DATABASE student;
+
+   GRANT ALL PRIVILEGES ON “Student" TO ayazhan;
+   GRANT ALL PRIVILEGES ON DATABASE "student" TO postgres;
+
+   \l
+   \c student
+   \d
+   ```
