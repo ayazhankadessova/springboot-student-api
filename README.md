@@ -129,3 +129,20 @@ The constructor is created with the specified parameters. Type ctor , and then p
    	}
    }
    ```
+
+6. Annotation & Dependency injection within Spring & SpringBoot.
+
+   1. In Controller, make `StudentService` to be auto generated -> `AutoWired`
+   2. In `Service`, make it `Beam` -> Add `@Service`
+   3. Test
+
+   ```
+   public class StudentService {
+    @GetMapping
+    public List<Student> getStudents() {
+        Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
+                21);
+        return List.of(Mariyam);
+   	}
+   }
+   ```
