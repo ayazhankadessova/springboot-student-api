@@ -179,3 +179,22 @@ The constructor is created with the specified parameters. Type ctor , and then p
    \c student
    \d
    ```
+
+8. JPA And Entity
+
+```
+@Entity
+@Table
+public class Student {
+    @Id
+    @SequenceGenerator(name = "student_sequence", sequenceName = "student_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
+    private Long id;
+    private String name;
+    private String email;
+    private LocalDate dob;
+    private Integer age;
+
+    public Student() {
+    }
+```
