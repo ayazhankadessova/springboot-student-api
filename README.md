@@ -147,3 +147,22 @@ The constructor is created with the specified parameters. Type ctor , and then p
    	}
    }
    ```
+
+7. Properties Life (Data Access Layer)
+
+   1. Add this to `application.properties`
+
+   ```
+   spring.datasource.url=jdbc:postgresql://localhost:5432/student
+   spring.datasource.username=
+   spring.datasource.password=
+   # clean statue every time we fun the application
+   spring.jpa.hibernate.ddl-auto=create-drop
+   spring.jpa.show-sql=true
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+   spring.jpa.properties.hibernate.format_sql=true
+   ```
+
+   2. Download `Postgres.app`
+
+   - Best for MacOS: https://postgresapp.com/downloads.html
