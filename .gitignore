@@ -1,2 +1,3 @@
 
 *.class
+target/classes/com/example/demo/DemoApplication.class
