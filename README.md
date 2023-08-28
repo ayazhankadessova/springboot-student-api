@@ -94,3 +94,38 @@ The constructor is created with the specified parameters. Type ctor , and then p
   ```
 
 5. Business Layer
+
+   1. Add `StudentController` -> `StudentService`
+
+   ```
+   @RestController
+   @RequestMapping(path = "api/v1/student")
+   public class StudentController {
+
+   	private final StudentService studentService;
+
+
+   	public StudentController(StudentService studentService) {
+   		this.studentService = studentService;
+   	}
+
+   	@GetMapping
+   	public List<Student> getStudents() {
+   		return studentService.getStudents();
+   	}
+
+   }
+   ```
+
+   2. Student Service
+
+   ```
+   public class StudentService {
+    @GetMapping
+    public List<Student> getStudents() {
+        Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
+                21);
+        return List.of(Mariyam);
+   	}
+   }
+   ```
