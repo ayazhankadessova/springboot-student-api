@@ -63,3 +63,34 @@ The constructor is created with the specified parameters. Type ctor , and then p
 ```
 [{"id":1,"name":"Mariam","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":21}]
 ```
+
+> Our class was converted to json object
+
+4. API Layer
+
+- N-tier architecture: API Layer -> Service Layer -> Data Access Layer
+
+  1.  Remove `GetMapping` from `DemoApplication.java`
+  2.  Add `StudentController`
+
+  ```
+  @RestController
+  @RequestMapping(path = "api/v1/student")
+  public class StudentController {
+
+  @GetMapping
+  public List<Student> hello() {
+  	Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
+  			21);
+  	return List.of(Mariyam);
+  	}
+  }
+  ```
+
+  3. Test `http://localhost:8080/api/v1/student`
+
+  ```
+  [{"id":1,"name":"Mariam","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":21}]
+  ```
+
+5. Business Layer
