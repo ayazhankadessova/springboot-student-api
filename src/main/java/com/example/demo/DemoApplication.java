@@ -18,11 +18,4 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
-	@GetMapping
-	public List<Student> hello() {
-		Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
-				21);
-		return List.of(Mariyam);
-	}
 }
