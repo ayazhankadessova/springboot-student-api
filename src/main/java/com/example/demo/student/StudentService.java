@@ -4,15 +4,22 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 public class StudentService {
-    @GetMapping
+
+    private final StudentRepository studentRepository;
+
+    // annotate constructor with auto-wired
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
     public List<Student> getStudents() {
-        Student Mariyam = new Student(1L, "Mariam", "mariam.jamal@gmail.com", LocalDate.of(2000, Month.JANUARY, 23),
-                21);
-        return List.of(Mariyam);
+        return studentRepository.findAll();
     }
 }
