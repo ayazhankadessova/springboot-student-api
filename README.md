@@ -211,3 +211,37 @@ Hibernate:
         primary key (id)
     )
 ```
+
+9. Configure Database with 1 Table -> student
+
+> Database -> Add connection -> PostgreSQL -> localhost@5342
+
+10. JPA Repository
+
+- Use interface inside of our service
+- return things from the repository instead of static list
+
+> JpaRepository gives us different methods
+
+```
+
+@Service
+public class StudentService {
+
+    private final StudentRepository studentRepository;
+
+    // annotate constructor with auto-wired
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    public List<Student> getStudents() {
+        return studentRepository.findAll();
+    }
+}
+```
+
+```
+[]
+```
