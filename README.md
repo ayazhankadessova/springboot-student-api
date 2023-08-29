@@ -198,3 +198,16 @@ public class Student {
     public Student() {
     }
 ```
+
+```
+create sequence student_sequence start with 1 increment by 1
+Hibernate:
+    create table student (
+        age integer,
+        dob date,
+        id bigint not null,
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+```
