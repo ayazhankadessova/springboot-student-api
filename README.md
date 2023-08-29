@@ -251,3 +251,74 @@ public class StudentService {
 ```
 In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
 ```
+
+- Hibernate is running this SQL when we do `saveAll()`:
+
+```
+Hibernate:
+    insert
+    into
+        student
+        (age,dob,email,name,id)
+    values
+        (?,?,?,?,?)
+```
+
+```
+[{"id":1,"name":"Mariam","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":21},{"id":2,"name":"Alex","email":"alex@gmail.com","dob":"2000-01-23","age":21}]
+```
+
+- Terminal
+
+```
+student=# SELECT * from student;
+ age |    dob     | id |         email          |  name
+-----+------------+----+------------------------+--------
+  21 | 2000-01-23 |  1 | mariam.jamal@gmail.com | Mariam
+  21 | 2000-01-23 |  2 | alex@gmail.com         | Alex
+(2 rows)
+```
+
+12. Transient (Implement methods)
+
+- Transient -> remove from DB
+
+```
+public Integer getAge() {
+    return Period.between(this.dob, LocalDate.now()).getYears();
+}
+```
+
+```
+
+public Integer getAge() {
+return Period.between(this.dob, LocalDate.now()).getYears();
+}
+
+```
+
+13. Post GetMapping
+
+> StudentController.java
+
+- Get Payload & Store it in the system
+
+```
+ervlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-29T13:34:02.728+06:00  INFO 36398 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+Student [id=null, name=null, email=bilal.ahmed@gmail.com, dob=null, age=null]
+
+```
+
+```
+POST http://localhost:8080/api/v1/student
+
+Content-type: application/json
+
+{
+    "firstname": "Bilal",
+    "lastname": "Ahmed",
+    "email": "bilal.ahmed@gmail.com",
+    "password": "password"
+}
+```
