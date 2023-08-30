@@ -42,13 +42,10 @@ public class StudentController {
 
     @PutMapping(path = "{studentId}")
     public void updateUser(
-            @PathVariable("studentId") String id,
+            @PathVariable("studentId") Long id,
             @RequestParam(value = "userName", required = false) String userName,
             @RequestParam(value = "email", required = false) String email) {
-        // Inside this method, you can update the user record based on the provided
-        // parameters
-        // Check if 'userName' or 'email' is not null and update the corresponding
-        // field(s) in the user record
+        studentService.updateStudent(id);
     }
 
 }
