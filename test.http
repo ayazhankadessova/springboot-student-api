@@ -9,3 +9,7 @@ Content-type: application/json
     "dob": "1995-12-17"
 }
 ```
+
+## Request 2
+
+POST http://localhost:8080/api/v1/student/1
