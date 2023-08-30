@@ -387,6 +387,12 @@ Content-type: application/json
         }
         ```
 
+16. Adding DELETE Request
+
+    1. DELETE http://localhost:8080/api/v1/student/1
+    2. Add the `DELETE` Mapping in the controller using annotation
+    3. Add `DelById` in Student Service
+
 ## Next
 
 1. Add validations to email
