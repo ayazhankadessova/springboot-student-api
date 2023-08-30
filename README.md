@@ -397,6 +397,7 @@ Content-type: application/json
 
 1. Add validations to email
 2. Make custom errors
+3. Spring & Spring Boot Annotations Learn https://www.youtube.com/watch?v=AXZkhKTbbWc
 
 ## Resources
 
@@ -408,6 +409,19 @@ Content-type: application/json
 
 - Delete/PutMapping: https://www.geeksforgeeks.org/spring-deletemapping-and-putmapping-annotation/#
 
-```
+## Notes
 
+1. JPA Repository -> CRUD Methods for our entity
+2. The `@Transactional` annotation in Java SpringBoot is used to manage transactions. It ensures that a group of database operations are treated as a single unit, providing atomicity, consistency, isolation, and concurrency control. It simplifies transaction management and promotes a declarative programming style.
+
+> If you update email -> it should not be already taken.
+
+3. ShortCuts
+
+```
+@GetMapping - shortcut for @RequestMapping(method = RequestMethod.GET)
+@PostMapping - shortcut for @RequestMapping(method = RequestMethod.POST)
+@PutMapping - shortcut for @RequestMapping(method = RequestMethod.PUT)
+@DeleteMapping - shortcut for @RequestMapping(method =RequestMethod.DELETE)
+@PatchMapping - shortcut for @RequestMapping(method = RequestMethod.PATCH)
 ```
