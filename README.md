@@ -322,3 +322,86 @@ Content-type: application/json
     "password": "password"
 }
 ```
+
+14. Writing Business Logic -> Add Student
+
+    1. Add Query to Students
+
+    ```
+    // type of repo we want to work with
+    // id
+    // this interface is responsible for data access
+    @Repository
+    public interface StudentRepository extends JpaRepository<Student, Long> {
+
+        @Query("SELECT * FROM Student where email=?1")
+        Optional<Student> findStudentByEmail(String email);
+
+    }
+    ```
+
+    2. Use it in `StudentService`
+
+    ```
+        public void addNewStudent(Student student) {
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+        System.out.println(studentOptional);
+
+        if (studentOptional.isPresent()) {
+            throw new IllegalStateException("email taken.")
+        }
+
+        studentRepository.save(student);
+    }
+    ```
+
+15. Testing POST Request
+
+        1. POST http://localhost:8080/api/v1/student
+
+        > Content-type: application/json
+
+        ```
+        {
+        "name": "Yerkezhan",
+        "email": "yerkezhan.kadessova@gmail.com",
+        "dob": "1995-12-17"
+        }
+        ```
+
+        2. Success! -> Added to dob
+
+        ```
+        [{"id":1,"name":"Mariam","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":23},{"id":2,"name":"Alex","email":"alex@gmail.com","dob":"2002-01-23","age":21},{"id":3,"name":"Yerkezhan","email":"yerkezhan.kadessova@gmail.com","dob":"1995-12-17","age":27}]
+        ```
+
+        3. Include message that we added in our Exception
+
+        ```
+        {
+        "timestamp": "2023-08-30T07:41:50.988+00:00",
+        "status": 500,
+        "error": "Internal Server Error",
+        "message": "email taken.",
+        "path": "/api/v1/student"
+        }
+        ```
+
+## Next
+
+1. Add validations to email
+2. Make custom errors
+
+## Resources
+
+- Install Postgres: https://postgresapp.com
+
+- https://medium.com/refinitiv-developer-community/how-to-test-rest-api-with-visual-studio-code-rest-client-extensions-9f2e061d0299
+
+- https://www.digitalocean.com/community/tutorials/spring-configuration-annotation
+
+- Delete/PutMapping: https://www.geeksforgeeks.org/spring-deletemapping-and-putmapping-annotation/#
+
+```
+
+```
