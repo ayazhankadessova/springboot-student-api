@@ -395,16 +395,41 @@ Content-type: application/json
 
 17. Add PUT Method
 
+    - COntroller -> Service (Transactional)
+
     1. Pass id in path, pass name & email in parameters ( not required)
     2. Check if student exists
     3. Check name (check if name length >0, if not same name)
     4. Check email (check if email length >0, if not same email as someones & old)
+
+    5. Test PUT
+
+    - PUT http://localhost:8080/api/v1/student/1?name=Ayazhik
+    - Will Change to:
+
+    ```
+    [{"id":2,"name":"Alex","email":"alex@gmail.com","dob":"2002-01-23","age":21},{"id":1,"name":"Ayazhik","email":"mariam.jamal@gmail.com","dob":"2000-01-23","age":23}]
+    ```
+
+    - Same email:
+
+    ````
+    {
+    "timestamp": "2023-08-30T09:36:56.177+00:00",
+    "status": 500,
+    "error": "Internal Server Error",
+    "message": "This email is taken.",
+    "path": "/api/v1/student/1"
+    }```
+    ````
 
 ## Next
 
 1. Add validations to email
 2. Make custom errors
 3. Spring & Spring Boot Annotations Learn https://www.youtube.com/watch?v=AXZkhKTbbWc
+4. Understand Transactional -> Goes to Managed State
+5. [ ] Spring Data JPA , Spring course
 
 ## Resources
 

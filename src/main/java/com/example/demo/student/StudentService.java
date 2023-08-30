@@ -3,7 +3,7 @@ package com.example.demo.student;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
-
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,15 +54,21 @@ public class StudentService {
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException(("Student not found for this id :: " + id)));
 
-        if (student.isPresent()) {
-            if (userName != null) {
-                student.setName(userName);
+        if (userName != null && userName.length() > 0 && !Objects.equals(student.getName(), userName)) {
+            student.setName(userName);
+        }
+
+        // update email
+
+        if (email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
+            Optional<Student> studentOptional = studentRepository.findStudentByEmail(email);
+
+            // check if email is taken
+            if (studentOptional.isPresent()) {
+                throw new IllegalStateException("This email is taken.");
             }
-            if (email != null) {
-                student.setEmail(email);
-            }
-            // Save the updated student record
-            studentRepository.save(student);
+
+            student.setEmail(email);
         }
     }
 
