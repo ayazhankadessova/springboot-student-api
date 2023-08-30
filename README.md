@@ -393,6 +393,13 @@ Content-type: application/json
     2. Add the `DELETE` Mapping in the controller using annotation
     3. Add `DelById` in Student Service
 
+17. Add PUT Method
+
+    1. Pass id in path, pass name & email in parameters ( not required)
+    2. Check if student exists
+    3. Check name (check if name length >0, if not same name)
+    4. Check email (check if email length >0, if not same email as someones & old)
+
 ## Next
 
 1. Add validations to email

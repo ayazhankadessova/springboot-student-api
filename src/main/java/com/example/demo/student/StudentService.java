@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class StudentService {
 
@@ -45,15 +47,23 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    public void updateStudent(Long id) {
+    @Transactional
+    public void updateStudent(Long id, String userName, String email) {
+        // Optional<Student> student = studentRepository.findById(id);
 
-        // boolean exists = studentRepository.existsById(id);
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(("Student not found for this id :: " + id)));
 
-        // if (!exists) {
-        // throw new IllegalStateException("Student with id " + id + " does not
-        // exist.");
-        // }
-
-        // studentRepository.deleteById(id);
+        if (student.isPresent()) {
+            if (userName != null) {
+                student.setName(userName);
+            }
+            if (email != null) {
+                student.setEmail(email);
+            }
+            // Save the updated student record
+            studentRepository.save(student);
+        }
     }
+
 }

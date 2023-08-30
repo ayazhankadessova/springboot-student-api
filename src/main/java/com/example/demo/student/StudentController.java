@@ -45,7 +45,7 @@ public class StudentController {
             @PathVariable("studentId") Long id,
             @RequestParam(value = "userName", required = false) String userName,
             @RequestParam(value = "email", required = false) String email) {
-        studentService.updateStudent(id);
+        studentService.updateStudent(id, userName, email);
     }
 
 }
