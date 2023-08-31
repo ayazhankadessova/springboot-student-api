@@ -423,13 +423,30 @@ Content-type: application/json
     }```
     ````
 
+18. TODO: Testing
+
+- [ ] Unit Testing
+- [ ] Integration Testing
+- [ ] Test Driven Development
+- [ ] Stripe: Test Against External Services
+
+20. Packaging & running
+
+_How to take API, produce a .jar that we can then run multiple instances of our application._
+
+    1. Delete `target` folder
+
 ## Next
 
 1. Add validations to email
 2. Make custom errors
 3. Spring & Spring Boot Annotations Learn https://www.youtube.com/watch?v=AXZkhKTbbWc
 4. Understand Transactional -> Goes to Managed State
-5. [ ] Spring Data JPA , Spring course
+
+## Learn More About
+
+- [ ] Spring Data JPA , Spring course
+- [ ] Hibernate Entity Lifecycle
 
 ## Resources
 
