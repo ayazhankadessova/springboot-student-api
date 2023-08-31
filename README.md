@@ -64,4 +64,4 @@ I'm an aspiring Software Developer/Site Reliability Engineer from Kazakhstan, st
 
 ## ✍️ Project Steps & Notes
 
-- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/springboot-java/blob/main/Notes.md).
+- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/springboot-student-api/blob/main/Notes.md).
