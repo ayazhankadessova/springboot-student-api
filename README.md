@@ -1,5 +1,4 @@
-<h2 align="center">
- <img src="screenshots/1280px-Terraform_Logo.svg.png" width="150"> SpringBoot Student API Project<img src="screenshots/Microsoft_Azure_Logo.png" alt="OpenAI Logo" width="140"> 
+<h2 align="center">SpringBoot Student API Project
 </h2>
 
 `JPA`, `Java SpringBoot`, `Postgresql`
@@ -12,7 +11,9 @@ Hibernate simplifies the mapping of object data to the database schema using ann
 
 ## Project Overview
 
-![](images/architecture.png)
+<h2 align="center">
+ <img src="images/architecture.png" width="190">  
+</h2>
 
 The Spring Boot project is an API that handles CRUD (Create, Read, Update, Delete) requests for managing students. The project is structured into different layers, including the API layer, service layer, and data access layer. It utilizes various technologies such as Hibernate, JPA (Java Persistence API), and PostgreSQL as the underlying database.
 
