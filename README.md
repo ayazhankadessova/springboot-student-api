@@ -1,7 +1,7 @@
 <h2 align="center">SpringBoot Student API
 </h2>
 
-`JPA`, `Java SpringBoot`, `Postgresql`
+`Java SpringBoot`, `Spring Data JPA`, `Postgresql`
 
 ## Motivation
 
