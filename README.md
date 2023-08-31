@@ -12,6 +12,8 @@ Hibernate simplifies the mapping of object data to the database schema using ann
 
 ## Project Overview
 
+![](images/architecture.png)
+
 The Spring Boot project is an API that handles CRUD (Create, Read, Update, Delete) requests for managing students. The project is structured into different layers, including the API layer, service layer, and data access layer. It utilizes various technologies such as Hibernate, JPA (Java Persistence API), and PostgreSQL as the underlying database.
 
 ### Key Components and Features:
