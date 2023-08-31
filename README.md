@@ -1,4 +1,4 @@
-<h2 align="center">SpringBoot Student API Project
+<h2 align="center">SpringBoot Student API
 </h2>
 
 `JPA`, `Java SpringBoot`, `Postgresql`
